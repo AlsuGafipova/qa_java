@@ -29,6 +29,12 @@ public class FelineTest {
         Feline feline = new Feline();
         assertEquals(1, feline.getKittens());
     }
+    @Test
+    void testGetKittensThroughPredatorInterface() {
+        // Проверяем, что Feline корректно реализует Predator.getKittens()
+        Predator predator = new Feline(); // Feline implements Predator
+        assertEquals(1, predator.getKittens());
+    }
 
     @ParameterizedTest
     @MethodSource("kittensDataProvider")
