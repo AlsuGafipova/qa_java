@@ -31,9 +31,9 @@ public class FelineTest {
     }
     @Test
     void testGetKittensThroughPredatorInterface() {
-        // Проверяем, что Feline корректно реализует Predator.getKittens()
-        Predator predator = new Feline(); // Feline implements Predator
-        assertEquals(1, predator.getKittens());
+        Predator predator = new Feline();
+        Feline feline = (Feline) predator;
+        assertEquals(1, feline.getKittens());
     }
 
     @ParameterizedTest
@@ -54,7 +54,7 @@ public class FelineTest {
     @Test
     void testAnimalGetFoodForHerbivore() throws Exception {
         Feline feline = new Feline();
-        // Feline наследуется от Animal, можно проверить метод getFood
-        // Но в Feline он переопределен через eatMeat
+        List<String> herbivoreFood = Arrays.asList("Трава", "Различные растения");
+        assertEquals(herbivoreFood, feline.getFood("Травоядное"));
     }
 }
